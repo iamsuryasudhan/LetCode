@@ -15,7 +15,7 @@ public class ProductsPage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    // 🔹 Open product using Excel data
+   
     public void openProductByName(String productName) {
 
         try {
@@ -32,7 +32,6 @@ public class ProductsPage {
         }
     }
 
-    // 🔹 Fallback (always works)
     public void openFirstProduct() {
 
         WebElement product = wait.until(
@@ -44,7 +43,6 @@ public class ProductsPage {
         product.click();
     }
 
-    // 🔹 Add to Cart
     public void addToCart() {
 
         WebElement addBtn = wait.until(
@@ -55,13 +53,12 @@ public class ProductsPage {
 
         addBtn.click();
 
-        // 🔹 Wait for cart icon to appear (important)
+        
         wait.until(ExpectedConditions.presenceOfElementLocated(
             By.xpath("//a[contains(@href,'cart')] | //button[contains(text(),'Cart')]")
         ));
     }
 
-    // 🔹 Open Cart
     public void openCart() {
 
         WebElement cart = wait.until(

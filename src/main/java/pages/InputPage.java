@@ -3,38 +3,38 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class FramePage {
+public class InputPage {
 
     WebDriver driver;
 
-    public FramePage(WebDriver driver) {
+    public InputPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    // Enter First Name & Last Name
-    public void enterUserDetails(String firstName, String lastName) {
+    // Locators
+    By fullName = By.id("fullName");
+    By appendText = By.id("join");
+    By getText = By.id("getMe");
+    By clearText = By.id("clearMe");
 
-        driver.switchTo().frame("firstFr");
-
-        driver.findElement(By.name("fname")).sendKeys(firstName);
-        driver.findElement(By.name("lname")).sendKeys(lastName);
-
-        driver.switchTo().defaultContent();
+    // Enter Full Name
+    public void enterFullName(String name) {
+        driver.findElement(fullName).clear();
+        driver.findElement(fullName).sendKeys(name);
     }
 
-    // Enter Email in Nested Frame
-    public void enterEmailInNestedFrame(String email) {
-
-        // Switch to outer frame
-        driver.switchTo().frame("firstFr");
-
-        // Switch to inner frame (index used instead of wrong id)
-        driver.switchTo().frame(0);
-
-        driver.findElement(By.name("email")).sendKeys(email);
-
-        driver.switchTo().defaultContent();
+    // Append Text
+    public void appendText(String text) {
+        driver.findElement(appendText).sendKeys(text);
     }
 
+    // Get Text from textbox
+    public String getInsideText() {
+        return driver.findElement(getText).getAttribute("value");
+    }
 
-	}
+    // Clear textbox
+    public void clearTextbox() {
+        driver.findElement(clearText).clear();
+    }
+}

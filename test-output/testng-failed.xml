@@ -3,13 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="base.RadioTest">
+      <class name="CrossBrowser.Base">
         <methods>
-          <include name="radioTest"/>
-          <include name="browserQuit"/>
-          <include name="initializebrowser"/>
+          <include name="launchbrowser"/>
         </methods>
-      </class> <!-- base.RadioTest -->
+      </class> <!-- CrossBrowser.Base -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
