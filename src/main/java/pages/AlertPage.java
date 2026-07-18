@@ -1,6 +1,7 @@
-  package pages;
+package pages;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 public class AlertPage {
 
@@ -10,18 +11,23 @@ public class AlertPage {
         this.driver = driver;
     }
 
-    public void handlePromptAlert(String text) {
+    // Accept Alert
+    public void acceptAlert() {
+        driver.findElement(By.id("accept")).click();
+    }
 
-        // Click prompt alert button
+    // Confirm Alert
+    public void confirmAlert() {
+        driver.findElement(By.id("confirm")).click();
+    }
+
+    // Prompt Alert
+    public void promptAlert() {
         driver.findElement(By.id("prompt")).click();
+    }
 
-        // Switch to alert
-        Alert alert = driver.switchTo().alert();
-
-        // Send text
-        alert.sendKeys(text);
-
-        // Accept
-        alert.accept();
+    // Modern Alert
+    public void modernAlert() {
+        driver.findElement(By.id("modern")).click();
     }
 }

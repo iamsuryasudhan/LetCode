@@ -15,26 +15,26 @@ public class ProductsTest extends BaseTest {
 
         ProductsPage page = new ProductsPage(driver);
 
-        // 🔹 Read from Excel
+        //  Read from Excel
         String productName = ExcelUtils.getCellData("ProductsTest", 1, 0);
 
-        // 🔹 Open product
+        //  Open product
         page.openProductByName(productName);
 
-        // 🔹 Add to cart
+        //  Add to cart
         page.addToCart();
 
-        // 🔹 Open cart
+        //  Open cart
         page.openCart();
 
-        // 🔹 Validation (strong)
+        // 🔹Validation (strong)
         Assert.assertTrue(
             driver.getCurrentUrl().contains("cart") 
             || driver.getPageSource().contains("Cart"),
             "Cart not opened"
         );
 
-        // 🔹 Write result
+        // Write result
         ExcelUtils.setCellData("ProductsTest", 1, 1, "Passed");
     }
 }

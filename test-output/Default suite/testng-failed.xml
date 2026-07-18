@@ -3,11 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="CrossBrowser.Base">
+      <class name="base.AlertTest">
         <methods>
-          <include name="launchbrowser"/>
+          <include name="browserQuit"/>
+          <include name="testModernAlert"/>
+          <include name="initializebrowser"/>
         </methods>
-      </class> <!-- CrossBrowser.Base -->
+      </class> <!-- base.AlertTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
